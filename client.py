@@ -72,6 +72,9 @@ def load_data():
             gss.append(evse["id"])
             listbox_gss.insert(END, evse["id"])
 
+        # set the label to "EVSEs:"
+        label_gss.config(text = "EVSEs:")
+
     else:
     
         # get gss
@@ -81,6 +84,9 @@ def load_data():
             gss.append(gs["gs_id"])
             listbox_gss.insert(END, gs["gs_id"])
     
+        # set the label to "GSs:"
+        label_gss.config(text = "Ground Stations:")
+
 
 def check_reservation():
 
