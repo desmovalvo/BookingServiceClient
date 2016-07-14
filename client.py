@@ -51,8 +51,8 @@ def load_data():
     reply = requests.get(vehicles_url, headers=headers)
     json_reply = json.loads(reply.text)
     for vehicle in json_reply["results"]:
-        vehicles.append(vehicle["vehicle_id"])
-        listbox_vehicles.insert(END, vehicle["vehicle_id"])
+        vehicles.append(vehicle["vehicle_plate"])
+        listbox_vehicles.insert(END, vehicle["vehicle_plate"])
         
     # get users
     reply = requests.get(users_url, headers=headers)
@@ -103,7 +103,7 @@ def check_reservation():
         # made the request to check reservation
         request_content = json.dumps({
             "gs_id" : gss[listbox_gss.curselection()[0]],
-            "vehicle_id" : vehicles[listbox_vehicles.curselection()[0]],
+            "vehicle_plate" : vehicles[listbox_vehicles.curselection()[0]],
             "user_id" : users[listbox_users.curselection()[0]],
             "res_type" : "TRA"
         })
@@ -121,7 +121,7 @@ def check_reservation():
         # made the request to check reservation
         request_content = json.dumps({
             "gs_id" : gss[listbox_gss.curselection()[0]],
-            "vehicle_id" : vehicles[listbox_vehicles.curselection()[0]],
+            "vehicle_plate" : vehicles[listbox_vehicles.curselection()[0]],
             "user_id" : users[listbox_users.curselection()[0]],
             "res_type" : "OTM"
         })
